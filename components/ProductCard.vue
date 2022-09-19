@@ -1,6 +1,16 @@
 <template>
 	<div class="product-card">
-		<div class="product-card__rating"></div>
+		
+		<div class="product-card__rating  rating-product-card">
+			<div class="rating-product-card__icon">
+				<div class="rating-product-card__icon-image"></div>
+				<div
+					class="rating-product-card__icon-fill"
+					:style="{top: '5px'}"
+				></div>
+			</div>
+			<div class="rating-product-card__counter">4.3</div>
+		</div>
 		<div class="product-card__basket">
 			<svg viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg">
 				<path d="M1.92 0.74C2.03331 0.588916 2.21115 0.5 2.4 0.5H9.6C9.78885 0.5 9.96669 0.588916 10.08 0.74L11.88 3.14C11.9579 3.24386 12 3.37018 12 3.5V11.9C12 12.3774 11.8104 12.8352 11.4728 13.1728C11.1352 13.5104 10.6774 13.7 10.2 13.7H1.8C1.32261 13.7 0.864773 13.5104 0.527208 13.1728C0.189642 12.8352 0 12.3774 0 11.9V3.5C0 3.37018 0.0421067 3.24386 0.12 3.14L1.92 0.74ZM2.7 1.7L1.2 3.7V11.9C1.2 12.0591 1.26321 12.2117 1.37574 12.3243C1.48826 12.4368 1.64087 12.5 1.8 12.5H10.2C10.3591 12.5 10.5117 12.4368 10.6243 12.3243C10.7368 12.2117 10.8 12.0591 10.8 11.9V3.7L9.3 1.7H2.7Z"/>
@@ -69,6 +79,47 @@ export default {
 			&:hover svg {
 				fill: $black;
 			}
+		}
+	}
+	.rating-product-card {
+		position: absolute;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		left: 19px;
+		top: 20px;
+		width: 31px;
+
+		&__icon {
+			position: relative;
+			width: 14px;
+			height: 14px;
+		}
+		&__icon-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-image: url('~@/assets/img/icons/i-star.png');
+			z-index: 2;
+		}
+		&__icon-fill {
+			position: absolute;
+			top: 5px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: $yellow;
+			z-index: 1;
+		}
+		&__counter {
+			font-size: 10px;
+			line-height: 13px;
+			color: $yellow;
 		}
 	}
 </style>
