@@ -1,8 +1,11 @@
 <template>
 	<ul class="sidebar">
-		<li 
-			class="sidebar__item"
+		<li
 			v-for="item, index in catalogList"
+			:class="[
+				'sidebar__item',
+				{'is-active': index === 0}
+			]"
 			:key="index">
 				{{item}}
 		</li>
@@ -30,7 +33,19 @@ export default {
 			font-size: 16px;
 			line-height: 21px;
 			text-decoration: none;
+			color: $gray2;
 			cursor: pointer;
+			transition: all .25s ease-in;
+
+			&:hover {
+				color: $gray;
+				text-decoration: none;
+			}
+		}
+		&__item.is-active {
+			color: $black;
+			cursor: default;
+			text-decoration: underline;
 		}
 	}
 </style>
