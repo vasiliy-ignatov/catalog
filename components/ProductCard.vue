@@ -18,7 +18,9 @@
 				<path d="M3.6 5.3C3.93137 5.3 4.2 5.56863 4.2 5.9C4.2 6.37739 4.38964 6.83523 4.72721 7.17279C5.06477 7.51036 5.52261 7.7 6 7.7C6.47739 7.7 6.93523 7.51036 7.27279 7.17279C7.61036 6.83523 7.8 6.37739 7.8 5.9C7.8 5.56863 8.06863 5.3 8.4 5.3C8.73137 5.3 9 5.56863 9 5.9C9 6.69565 8.68393 7.45871 8.12132 8.02132C7.55871 8.58393 6.79565 8.9 6 8.9C5.20435 8.9 4.44129 8.58393 3.87868 8.02132C3.31607 7.45871 3 6.69565 3 5.9C3 5.56863 3.26863 5.3 3.6 5.3Z"/>
 			</svg>
 		</div>
-		<div class="product-card__image"></div>
+		<div class="product-card__image">
+			<div class="product-card__picture" :style="`background-image: url('img/pic-01.jpg')`"></div>
+		</div>
 		<div class="product-card__title">Рюкзак Louis Vuitton Discovery</div>
 		<div class="product-card__price">150 000 ₽</div>
 	</div>
@@ -43,16 +45,13 @@ export default {
 			width: 61.20689%;
 			margin: 0 auto;
 			margin-bottom: 16px;
+		}
+		&__picture {
+			padding-bottom: 126.76056%;
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
-			background-color: red;
-
-			&::after {
-				content: '';
-				display: block;
-				padding-bottom: 126.76056%;
-			}
+			// background-color: red;
 		}
 		&__title {
 			font-size: 14px;

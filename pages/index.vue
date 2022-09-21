@@ -5,7 +5,10 @@
 				<h1 class="page-title">Каталог</h1>
 			</div>
 			<div class="page-header__item">
-				<Select/>
+				<ui-select
+					v-bind="selectData"
+					@select="chooseSelect"
+				></ui-select>
 			</div>
 		</div>
 		<div class="page-wrapper">
@@ -24,9 +27,29 @@
 </template>
 
 <script>
+import UiSelect from '@/components/ui/UiSelect';
 
 export default {
 	name: 'IndexPage',
+	components: {
+		UiSelect
+	},
+	data() {
+		return {
+			selectData: {
+				selectOptions: [
+					{name: 'По цене', value: 1},
+					{name: 'По популярности', value: 2},
+				],
+				selected: 'цене'
+			}
+		}
+	},
+	methods: {
+		chooseSelect(options) {
+			this.selectData.selected = options.name.split(' ')[1]
+		}
+	}
 }
 </script>
 
