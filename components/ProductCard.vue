@@ -1,15 +1,8 @@
 <template>
 	<div class="product-card">
 		
-		<div class="product-card__rating  rating-product-card">
-			<div class="rating-product-card__icon">
-				<div class="rating-product-card__icon-image"></div>
-				<div
-					class="rating-product-card__icon-fill"
-					:style="{top: '5px'}"
-				></div>
-			</div>
-			<div class="rating-product-card__counter">4.3</div>
+		<div class="product-card__rating">
+			<ui-rating :value="4.3"></ui-rating>
 		</div>
 		<div class="product-card__basket">
 			<svg viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg">
@@ -27,8 +20,11 @@
 </template>
 
 <script>
+import UiRating from '@/components/ui/UiRating'
 export default {
-
+	components: {
+		UiRating
+	}
 }
 </script>
 
@@ -41,6 +37,11 @@ export default {
 		box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
 		border-radius: 8px;
 
+		&__rating {
+			position: absolute;
+			left: 19px;
+			top: 20px;
+		}
 		&__image {
 			width: 61.20689%;
 			margin: 0 auto;
@@ -78,47 +79,6 @@ export default {
 			&:hover svg {
 				fill: $black;
 			}
-		}
-	}
-	.rating-product-card {
-		position: absolute;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		left: 19px;
-		top: 20px;
-		width: 31px;
-
-		&__icon {
-			position: relative;
-			width: 14px;
-			height: 14px;
-		}
-		&__icon-image {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-image: url('~@/assets/img/icons/i-star.png');
-			z-index: 2;
-		}
-		&__icon-fill {
-			position: absolute;
-			top: 5px;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: $yellow;
-			z-index: 1;
-		}
-		&__counter {
-			font-size: 10px;
-			line-height: 13px;
-			color: $yellow;
 		}
 	}
 </style>

@@ -22,7 +22,7 @@ export default {
 		'@/assets/scss/bundle.scss',
 	],
 	styleResources: {
-		scss: ["@/assets/scss/_var.scss"]
+		scss: ["@/assets/scss/_var.scss", "@/assets/scss/_mixins.scss"]
 	},
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

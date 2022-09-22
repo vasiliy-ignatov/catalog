@@ -1,0 +1,11 @@
+@mixin singleBgImage($params) {
+	@debug $params;
+	background-repeat: no-repeat;
+	background-position: center;
+	// @if ($sizeX ==  and $sizeY != '') {
+	// 	background-size: $sizeX $sizeY;
+	// } @else {
+	// 	background-size: cover;
+	// }
+	background-image: url($url);
+}
