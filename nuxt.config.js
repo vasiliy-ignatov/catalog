@@ -22,12 +22,14 @@ export default {
 		'@/assets/scss/bundle.scss',
 	],
 	styleResources: {
-		scss: ["@/assets/scss/_var.scss", "@/assets/scss/_mixins.scss"]
+		scss: ["@/assets/scss/_var.scss"]
 	},
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-	plugins: [
-	],
+	// plugins: [
+	// 	'~/plugins/vuelidate'
+	// ],
+	plugins: [],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
 	components: true,

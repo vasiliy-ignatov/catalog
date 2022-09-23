@@ -1,14 +1,55 @@
 <template>
 	<div class="ui-input">
-		<div class="ui-input__placeholder">Ваше имя</div>
-		<input class="ui-input__input" type="text"/>
-		<div class="ui-input__error">Поле обязательно для заполнения</div>
+		<div class="ui-input__placeholder">{{ placeholder }}</div>
+		<input class="ui-input__input" type="text" v-model="dataValue"/>
+		<div class="ui-input__error" v-if="errorText && !$v.dataValue.required && this.$v.dataValue.$error">{{errorText}}</div>
 	</div>
 </template>
 
 <script>
+import { validationMixin } from 'vuelidate'
+import { required } from 'vuelidate/lib/validators'
+
 export default {
 	name: 'ui-input',
+	mixins: [validationMixin],
+	props: {
+		value: {
+			type: String,
+			default: ''
+		},
+		placeholder: {
+			type: String,
+			default: ''
+		},
+		errorText: {
+			type: String,
+			default: ''
+		}
+	},
+	data() {
+		return {
+			dataValue: ''
+		}
+	},
+	mounted() {
+		this.dataValue = this.value
+	},
+	validations: {
+		dataValue: {
+			required
+		}
+	},
+	methods: {
+		showError() {
+			console.log('blur');
+			console.log(this.$v.dataValue.required, this.$v.dataValue.$error);
+			if (this.$v.$invalid) {
+				this.$v.$touch()
+				return
+			}
+		}
+	}
 }
 </script>
 

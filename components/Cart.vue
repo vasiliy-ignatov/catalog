@@ -28,10 +28,10 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="cart-form">
 				<div class="cart-form__title">Оформить заказ</div>
-
-				<ui-input></ui-input>
+				<ui-input v-bind="form.name"></ui-input>
 			</div>
 		</div>
 	</div>
@@ -51,11 +51,17 @@ export default {
 	props: {
 		isActive: false
 	},
-	// data() {
-	// 	return {
-	// 		isActive: true
-	// 	}
-	// }
+	data() {
+		return {
+			form: {
+				name: {
+					value: '',
+					placeholder: 'Ваше имя',
+					errorText: 'Поле обязательно для заполнения'
+				}
+			}
+		}
+	},
 	methods: {
 		btnClick() {
 		}
@@ -177,13 +183,6 @@ export default {
 		}
 		&__btn:hover{
 			fill: $black;
-		}
-	}
-	.cart-form {
-		&__title {
-			margin-bottom: 16px;
-			font-size: 18px;
-			line-height: 23px;
 		}
 	}
 </style>
