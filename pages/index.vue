@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Cart :isActive="true"/>
+		<Cart :isActive="false"/>
 		<div class="page-header">
 			<div class="page-header__item">
 				<h1 class="page-title">Каталог</h1>

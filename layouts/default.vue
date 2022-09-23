@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<ui-icons></ui-icons>
 		<div class="container">
 			<Header/>
 			<main class="main">
@@ -10,9 +11,13 @@
 </template>
 
 <script>
+import UiIcons from '@/components/ui/UiIcons';
 
 export default {
 	name: "default",
+	components: {
+		UiIcons
+	}
 }
 </script>
 
